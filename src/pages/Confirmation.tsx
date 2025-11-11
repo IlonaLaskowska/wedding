@@ -5,6 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -15,7 +22,8 @@ const Confirmation = () => {
     email: "",
     attendance: "",
     guests: "",
-    dietary: "",
+    meal: "",
+    song: "",
     message: "",
   });
 
@@ -42,7 +50,7 @@ const Confirmation = () => {
           <div className="w-24 h-1 bg-accent mx-auto mb-6"></div>
           <p className="text-lg text-muted-foreground">
             {t(
-              "Prosimy o potwierdzenie obecności do 1 kwietnia 2026",
+              "Prosimy o potwierdzenie obecności do 21 marca 2026",
               "Please confirm your attendance by April 1, 2026"
             )}
           </p>
@@ -132,19 +140,48 @@ const Confirmation = () => {
 
                 {/* Dietary Requirements */}
                 <div className="space-y-2">
-                  <Label htmlFor="dietary">
+                  <Label htmlFor="meal">
                     {t("Wymagania żywieniowe", "Dietary requirements")}
                   </Label>
+                  <div>
+                    <Label className="sr-only" htmlFor="meal">
+                      {t("Preferencje posiłku", "Meal preference")}
+                    </Label>
+                    <Select
+                      value={formData.meal}
+                      onValueChange={(value) =>
+                        setFormData({ ...formData, meal: value })
+                      }
+                    >
+                      <SelectTrigger id="meal" className="w-full">
+                        <SelectValue
+                          placeholder={t("Wybierz opcję", "Choose an option")}
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="regular">
+                          {t("Regularne", "Regular")}
+                        </SelectItem>
+                        <SelectItem value="vege">
+                          {t("Wegetariańskie", "Vegetarian")}
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                {/* Wedding song */}
+                <div className="space-y-2">
+                  <Label htmlFor="song">
+                    {t("Wybierz jedną piosenkę weselną", "Pick one wedding song")}
+                  </Label>
                   <Input
-                    id="dietary"
-                    value={formData.dietary}
+                    id="song"
+                    value={formData.song}
                     onChange={(e) =>
-                      setFormData({ ...formData, dietary: e.target.value })
+                      setFormData({ ...formData, song: e.target.value })
                     }
-                    placeholder={t(
-                      "np. wegetarianin, alergie",
-                      "e.g. vegetarian, allergies"
-                    )}
+                    placeholder={t("Tytuł – Wykonawca", "Title – Artist")}
                   />
                 </div>
               </>
