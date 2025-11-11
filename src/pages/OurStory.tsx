@@ -1,5 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import floral2 from "@/assets/floral-decoration-2.png";
+
 import {
   Carousel,
   CarouselContent,
@@ -30,9 +30,7 @@ const OurStory = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16 lg:mb-20 relative">
-          <div className="absolute -top-8 md:-top-10 left-1/2 -translate-x-1/2 w-16 h-16 md:w-24 md:h-24 opacity-20">
-            <img src={floral2} alt="" className="w-full h-full object-contain" />
-          </div>
+
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-3 md:mb-4 px-4">
             {t("Nasza Historia", "Our Story")}
           </h1>
