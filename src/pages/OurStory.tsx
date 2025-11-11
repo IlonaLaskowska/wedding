@@ -9,6 +9,11 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
+import img1 from "@/assets/img_1.jpg";
+import img2 from "@/assets/img_2.jpg";
+import img3 from "@/assets/img_3.jpg";
+import img4 from "@/assets/img_4.jpg";
+import img5 from "@/assets/img_5.jpg";
 
 const OurStory = () => {
   const { t } = useLanguage();
@@ -16,13 +21,13 @@ const OurStory = () => {
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
 
-  // Placeholder gallery images - replace with actual photos
+  // Placeholder gallery images - replace with actual iPhone vertical photos
   const galleryImages = [
-    { id: 1, alt: t("Zdjęcie 1", "Photo 1") },
-    { id: 2, alt: t("Zdjęcie 2", "Photo 2") },
-    { id: 3, alt: t("Zdjęcie 3", "Photo 3") },
-    { id: 4, alt: t("Zdjęcie 4", "Photo 4") },
-    { id: 5, alt: t("Zdjęcie 5", "Photo 5") },
+    { id: 1, src: img1, alt: t("Zdjęcie 1", "Photo 1") },
+    { id: 2, src: img2, alt: t("Zdjęcie 2", "Photo 2") },
+    { id: 3, src: img3, alt: t("Zdjęcie 3", "Photo 3") },
+    { id: 4, src: img4, alt: t("Zdjęcie 4", "Photo 4") },
+    { id: 5, src: img5, alt: t("Zdjęcie 5", "Photo 5") },
   ];
 
   return (
@@ -126,20 +131,32 @@ const OurStory = () => {
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {galleryImages.map((image) => (
-                <CarouselItem key={image.id} className="pl-2 md:pl-4">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted shadow-lg">
-                    <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                      <div className="text-center">
-                        <p className="text-lg md:text-xl mb-2">{image.alt}</p>
-                        <p className="text-sm">{t("Dodaj swoje zdjęcie", "Add your photo")}</p>
+                <CarouselItem
+                  key={image.id}
+                  className="pl-2 md:pl-4 basis-[80%] sm:basis-[65%] md:basis-[50%] lg:basis-[40%] xl:basis-[33%]"
+                >
+                  <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl shadow-lg bg-muted">
+                    {image.src ? (
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                        <div className="text-center px-4">
+                          <p className="text-lg md:text-xl mb-2">{image.alt}</p>
+                          <p className="text-sm">{t("Dodaj swoje zdjęcie (pionowe 3:4)", "Add your photo (vertical 3:4)")}</p>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-4 md:left-8 w-12 h-12 md:w-14 md:h-14" />
-            <CarouselNext className="right-4 md:right-8 w-12 h-12 md:w-14 md:h-14" />
+            <CarouselPrevious className="left-2 md:left-4 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-sm border-0 shadow-lg text-wedding-blue hover:bg-white" />
+            <CarouselNext className="right-2 md:right-4 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-sm border-0 shadow-lg text-wedding-blue hover:bg-white" />
           </Carousel>
         </div>
       </div>
