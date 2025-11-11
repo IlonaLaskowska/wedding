@@ -80,7 +80,7 @@ const Confirmation = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                placeholder="ilonaikrzys.pl"
+                placeholder="mail@example.com"
               />
             </div>
 

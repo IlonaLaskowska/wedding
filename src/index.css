@@ -26,7 +26,7 @@ All colors MUST be HSL.
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 220 32% 62%;
+    --accent: 200 50% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -89,7 +89,7 @@ All colors MUST be HSL.
     --input: 0 0% 20%;
     --ring: 220 32% 62%;
     
-    --wedding-blue: 220 32% 62%;
+    --wedding-blue: 220 92% 33%;
     --wedding-blue-light: 220 32% 85%;
     --wedding-cream: 40 20% 15%;
     --sidebar-background: 240 5.9% 10%;
@@ -111,17 +111,21 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Montserrat', sans-serif;
+    /*font-weight: 300; */
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
+    font-weight: 600;
   }
   
   .font-serif {
     font-family: 'Playfair Display', serif;
+    font-weight: 400;
   }
   
   .font-decorative {
     font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
   }
 }

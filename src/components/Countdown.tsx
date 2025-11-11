@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const WEDDING_DATE = new Date("2026-05-22T15:00:00");
+const WEDDING_DATE = new Date("2026-05-22T16:00:00");
 
 export const Countdown = () => {
   const { t } = useLanguage();

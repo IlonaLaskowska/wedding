@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Countdown } from "@/components/Countdown";
-import heroImage from "@/assets/hero-couple.jpg";
+import heroImage from "@/assets/img_landing_page2.jpg";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -19,20 +19,19 @@ const Index = () => {
 
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-serif font-bold mb-4 text-white">
+          <h1 className="text-6xl md:text-8xl font-serif font-bold mb-4 text-white -mt-20">
             Ilonka & Krzyś
           </h1>
-          <div className="w-32 h-1 bg-accent mx-auto mb-8"></div>
-          <p className="text-xl md:text-2xl text-white/90 mb-12 font-light tracking-wide">
+          <p className="text-xl md:text-2xl text-white/90 mb-8 font-light tracking-wide">
             {t("Pobieramy się!", "We're getting married!")}
           </p>
           
-          <div className="mb-8">
+          <div className="mb-4">
             <Countdown />
           </div>
           
-          <div className="text-white/80 text-lg">
-            <p className="mb-2">22.05.2026 • 15:00</p>
+          <div className="text-white/80 text-lg mt-[10mm]">
+            <p className="mb-2">22.05.2026 • 16:00</p>
             <p className="font-decorative text-2xl">Folwark Ruchenka</p>
           </div>
         </div>

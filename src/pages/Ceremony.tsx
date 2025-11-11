@@ -9,7 +9,7 @@ const Ceremony = () => {
     {
       icon: Clock,
       title: t("Godzina", "Time"),
-      content: "15:00",
+      content: "16:00",
       description: t("22 maja 2026", "May 22, 2026"),
     },
     {
@@ -22,13 +22,13 @@ const Ceremony = () => {
       icon: Music,
       title: t("Przyjęcie", "Reception"),
       content: t("Po ceremonii", "Following the ceremony"),
-      description: t("Taniec, muzyka i zabawa do białego rana", "Dancing, music and celebration until dawn"),
+      description: t("Po ceremonii planujemy spokojne rozpoczęcie na zewnątrz z winem i przystawkami. Kolacja przewidywana jest na godzinę 18:00. Następnie taniec, muzyka i zabawa do białego rana.", "After the ceremony we plan to have a peaceful start outdoors with wine and snacks. Dinner is expected to start at 6:00 PM. Then dancing, music and celebration until dawn."),
     },
     {
       icon: Camera,
       title: t("Dress Code", "Dress Code"),
       content: t("Elegancki, Boho", "Elegant, Boho"),
-      description: t("Ceremonia odbywa się na zewnątrz - wygodne obuwie mile widziane", "Outdoor ceremony - comfortable shoes welcome"),
+      description: t("Ceremonia odbywa się na zewnątrz. Polecamy zabrać wygodne obuwie na zmianę oraz coś ciepłego do okrycia wieczorem.", "Outdoor ceremony. We would recommend to take comfortable shoes to change and something warm to wear later in the night."),
     },
   ];
 
@@ -72,16 +72,24 @@ const Ceremony = () => {
             {t("Jak dojechać", "How to get there")}
           </h2>
           <Card className="p-8">
-            <div className="aspect-video bg-muted rounded-lg mb-6 flex items-center justify-center">
-              <MapPin className="w-12 h-12 text-muted-foreground" />
+            <div className="aspect-video rounded-lg mb-6 overflow-hidden">
+              <iframe
+                title={t("Mapa dojazdu", "Map preview")}
+                src="https://www.google.com/maps?q=Folwark%20Ruchenka%2C%20S%C5%82oneczna%2025%2C%2007-100%20Ruchna&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
             <div className="text-center">
               <h3 className="text-xl font-serif mb-2">Folwark Ruchenka</h3>
               <p className="text-muted-foreground mb-4">
-                {t("Dodaj tutaj dokładny adres", "Add exact address here")}
+                {t("Słoneczna 25, 07-100 Ruchna", "Słoneczna 25, 07-100 Ruchna")}
               </p>
               <a
-                href="https://maps.google.com"
+                href="https://maps.app.goo.gl/vrqUj2HWB8GbZ1Hy6"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"
