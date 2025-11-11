@@ -9,11 +9,12 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
-import img1 from "@/assets/img_1.jpg";
+import img1 from "@/assets/img_5.jpg";
 import img2 from "@/assets/img_2.jpg";
 import img3 from "@/assets/img_3.jpg";
 import img4 from "@/assets/img_4.jpg";
-import img5 from "@/assets/img_5.jpg";
+import img5 from "@/assets/img_1.jpg";
+import imgDrawing from "@/assets/img_drawing.jpg";
 
 const OurStory = () => {
   const { t } = useLanguage();
@@ -42,30 +43,47 @@ const OurStory = () => {
           <div className="w-20 md:w-24 h-0.5 md:h-1 bg-accent mx-auto"></div>
         </div>
 
-        {/* Story Content */}
-        <div className="max-w-4xl mx-auto space-y-8 md:space-y-12 lg:space-y-16">
-          <div className="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl max-w-none">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-accent mb-4 md:mb-6">
-              {t("Jak się poznaliśmy", "How we met")}
-            </h2>
-            <p className="text-muted-foreground leading-relaxed text-base md:text-lg lg:text-xl">
-              {t(
-                "Tutaj opisz swoją historię... Opowiedz jak się poznaliście, jakie były wasze pierwsze wspólne chwile, co sprawiło, że wiedzieliście, że to właśnie ta osoba jest tą jedyną. Wasza historia jest wyjątkowa i z pewnością zainteresuje gości weselnych.",
-                "Describe your relationship story here... Write down how you met, what your first moments together were like, and what made you realize this person was the one. Your story is certainly unique and will interest your wedding guests."
-              )}
-            </p>
-          </div>
+        {/* Story Content with image on the right */}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
+            {/* Left: text */}
+            <div className="space-y-8 md:space-y-12 lg:space-y-16">
+              <div className="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl max-w-none">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-accent mb-4 md:mb-6">
+                  {t("Jak się poznaliśmy", "How we met")}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed text-base md:text-lg lg:text-xl">
+                  {t(
+                    "Tutaj opisz swoją historię... Opowiedz jak się poznaliście, jakie były wasze pierwsze wspólne chwile, co sprawiło, że wiedzieliście, że to właśnie ta osoba jest tą jedyną. Wasza historia jest wyjątkowa i z pewnością zainteresuje gości weselnych.",
+                    "Describe your relationship story here... Write down how you met, what your first moments together were like, and what made you realize this person was the one. Your story is certainly unique and will interest your wedding guests."
+                  )}
+                </p>
+              </div>
 
-          <div className="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl max-w-none">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-accent mb-4 md:mb-6">
-              {t("Oświadczyny", "The Proposal")}
-            </h2>
-            <p className="text-muted-foreground leading-relaxed text-base md:text-lg lg:text-xl">
-              {t(
-                "Opowiedz o oświadczynach... Gdzie się odbyły, jak wyglądały, jakie były okoliczności. To jeden z najważniejszych momentów waszej wspólnej historii.",
-                "Tell about the proposal... Where it took place, what it was like, what the circumstances were. This is one of the most important moments of your shared history."
-              )}
-            </p>
+              <div className="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl max-w-none">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-accent mb-4 md:mb-6">
+                  {t("Oświadczyny", "The Proposal")}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed text-base md:text-lg lg:text-xl">
+                  {t(
+                    "Opowiedz o oświadczynach... Gdzie się odbyły, jak wyglądały, jakie były okoliczności. To jeden z najważniejszych momentów waszej wspólnej historii.",
+                    "Tell about the proposal... Where it took place, what it was like, what the circumstances were. This is one of the most important moments of your shared history."
+                  )}
+                </p>
+              </div>
+            </div>
+
+            {/* Right: image */}
+            <div className="order-first lg:order-none">
+              <div className="relative w-full aspect-square rounded-full overflow-hidden shadow-lg bg-muted">
+                <img
+                  src={imgDrawing}
+                  alt={t("Nasze zdjęcie", "Our photo")}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Couple Info */}
