@@ -50,6 +50,7 @@ export default {
         wedding: {
           blue: "hsl(var(--wedding-blue))",
           "blue-light": "hsl(var(--wedding-blue-light))",
+          "blue-dark": "hsl(var(--wedding-blue-dark))",
           cream: "hsl(var(--wedding-cream))",
         },
         sidebar: {

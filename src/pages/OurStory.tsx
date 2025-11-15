@@ -52,22 +52,32 @@ const OurStory = () => {
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-accent mb-4 md:mb-6">
                   {t("Jak się poznaliśmy", "How we met")}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed text-base md:text-lg lg:text-xl">
+                <p className="text-muted-foreground leading-relaxed text-base md:text-lg lg:text-xl text-justify">
                   {t(
-                    "Tutaj opisz swoją historię... Opowiedz jak się poznaliście, jakie były wasze pierwsze wspólne chwile, co sprawiło, że wiedzieliście, że to właśnie ta osoba jest tą jedyną. Wasza historia jest wyjątkowa i z pewnością zainteresuje gości weselnych.",
-                    "Describe your relationship story here... Write down how you met, what your first moments together were like, and what made you realize this person was the one. Your story is certainly unique and will interest your wedding guests."
+                    "Poznaliśmy się na ślubie naszych przyjaciół, Magdy i Huberta. Usadzili nas obok siebie, a kiedy zapytaliśmy dlaczego, ich odpowiedź była bezbłędna: ",
+                    "We met at our friends' wedding, Magda and Hubert's. They seated us next to each other, and when we asked why, their answer was perfect: "
+                  )}
+                  <span className="italic text-accent">
+                    {t(
+                      "Ilona mówi dużo, a Krzyś mówi szybko, więc kiedy Ilona weźmie oddech, Krzyś zdąży coś powiedzieć.",
+                      "Ilona talks a lot, and Chris talks fast, so when Ilona takes a breath, Chris will have a chance to say something."
+                    )}
+                  </span>
+                  {t(
+                    " Wygląda na to, że ich plan zadziałał aż za dobrze, bo pięć lat później wciąż prowadzimy rozmowy w dokładnie tym samym rytmie.",
+                    " It seems their plan worked a little too well, because five years later we're still talking in exactly the same rhythm."
                   )}
                 </p>
               </div>
 
               <div className="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl max-w-none">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-accent mb-4 md:mb-6">
-                  {t("Oświadczyny", "The Proposal")}
+                  {t("Co nas połączyło", "What Connected Us")}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed text-base md:text-lg lg:text-xl">
+                <p className="text-muted-foreground leading-relaxed text-base md:text-lg lg:text-xl text-justify">
                   {t(
-                    "Opowiedz o oświadczynach... Gdzie się odbyły, jak wyglądały, jakie były okoliczności. To jeden z najważniejszych momentów waszej wspólnej historii.",
-                    "Tell about the proposal... Where it took place, what it was like, what the circumstances were. This is one of the most important moments of your shared history."
+                    "Jesteśmy jak ogień i woda, jak yin i yang, zupełnie inni, a jednak idealnie dopasowani. Połączyła nas miłość do natury, ruchu i wszystkich aktywności, które wymagają pianki, kasku albo odwagi graniczącej z szaleństwem. Surfing, kitesurfing, nurkowanie, wędrówki. Jeśli pachnie przygodą, to jesteśmy pierwsi w kolejce. I najlepiej razem, nawet jeśli jedno krzyczy „jedziemy!”, a drugie pyta „a to na pewno bezpieczne?”.",
+                    "We’re like fire and water, like yin and yang, totally different but somehow a perfect match. What brought us together was our shared love for nature, movement, and trying anything that requires a wetsuit, a helmet, or a questionable amount of courage. Surfing, kitesurfing, diving, hiking. If it involves adventure, we’re in. And always better as a team, even if one of us yells “let’s go!” while the other whispers “are we sure this is safe?”."
                   )}
                 </p>
               </div>
@@ -85,50 +95,12 @@ const OurStory = () => {
               </div>
             </div>
           </div>
-
-          {/* Couple Info */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-12 md:mt-16 lg:mt-20 pt-12 md:pt-16 border-t border-border">
-            {/* Bride */}
-            <div className="text-center px-4">
-              <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto mb-4 md:mb-6 rounded-full bg-muted overflow-hidden">
-                {/* Placeholder for bride photo */}
-                <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm md:text-base">
-                  {t("Zdjęcie Panny Młodej", "Bride's Photo")}
-                </div>
-              </div>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-decorative mb-2">Ilonka</h3>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-3 md:mb-4">
-                {t("Panna Młoda", "The Bride")}
-              </p>
-              <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-md mx-auto">
-                {t(
-                  "Tutaj możesz napisać krótki tekst o sobie. Pozwoli to gościom lepiej Cię poznać. Napisz wszystkie ciekawe informacje o sobie, możesz napisać o swoich zainteresowaniach lub o tym, jak zmieniło się Twoje życie po spotkaniu drugiej połowy.",
-                  "Here you can write a short text about yourself. This will allow guests to get to know you better. Write all interesting information about yourself, you can write about your interests or how your life changed after meeting your other half."
-                )}
-              </p>
-            </div>
-
-            {/* Groom */}
-            <div className="text-center px-4">
-              <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto mb-4 md:mb-6 rounded-full bg-muted overflow-hidden">
-                {/* Placeholder for groom photo */}
-                <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm md:text-base">
-                  {t("Zdjęcie Pana Młodego", "Groom's Photo")}
-                </div>
-              </div>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-decorative mb-2">Krzyś</h3>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-3 md:mb-4">
-                {t("Pan Młody", "The Groom")}
-              </p>
-              <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-md mx-auto">
-                {t(
-                  "Tutaj możesz napisać krótki tekst o sobie. Pozwoli to gościom lepiej Cię poznać. Napisz wszystkie ciekawe informacje o sobie, możesz napisać o swoich zainteresowaniach lub o tym, jak zmieniło się Twoje życie po spotkaniu drugiej połowy.",
-                  "Here you can write a short text about yourself. This will allow guests to get to know you better. Write all interesting information about yourself, you can write about your interests or how your life changed after meeting your other half."
-                )}
-              </p>
-            </div>
-          </div>
         </div>
+      </div>
+
+      {/* Blue Separator */}
+      <div className="w-full py-8 md:py-12">
+        <div className="w-24 md:w-32 h-1 bg-accent mx-auto"></div>
       </div>
 
       {/* Photo Gallery - Full Width at Bottom */}

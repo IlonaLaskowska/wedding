@@ -23,7 +23,6 @@ const Confirmation = () => {
     attendance: "",
     guests: "",
     meal: "",
-    song: "",
     message: "",
   });
 
@@ -169,21 +168,6 @@ const Confirmation = () => {
                     </Select>
                   </div>
                 </div>
-
-                {/* Wedding song */}
-                <div className="space-y-2">
-                  <Label htmlFor="song">
-                    {t("Wybierz jedną piosenkę weselną", "Pick one wedding song")}
-                  </Label>
-                  <Input
-                    id="song"
-                    value={formData.song}
-                    onChange={(e) =>
-                      setFormData({ ...formData, song: e.target.value })
-                    }
-                    placeholder={t("Tytuł – Wykonawca", "Title – Artist")}
-                  />
-                </div>
               </>
             )}
 
@@ -217,17 +201,9 @@ const Confirmation = () => {
         <div className="mt-8 text-center text-muted-foreground">
           <p>
             {t(
-              "W razie pytań, skontaktuj się z nami:",
-              "If you have any questions, contact us:"
+              "W razie pytań, skontaktuj się z nami telefonicznie",
+              "If you have any questions, contact us via phone"
             )}
-          </p>
-          <p className="mt-2">
-            <a
-              href="mailto:contact@example.com"
-              className="text-accent hover:underline"
-            >
-              contact@example.com
-            </a>
           </p>
         </div>
       </div>

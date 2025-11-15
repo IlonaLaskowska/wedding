@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { MapPin, Clock, Music, Camera, Gift } from "lucide-react";
+import { MapPin, Clock, Music, Camera, Gift, ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import imgRuchna from "@/assets/img_ruchna.jpg";
 
 const Ceremony = () => {
   const { t } = useLanguage();
@@ -97,6 +98,49 @@ const Ceremony = () => {
                 {t("Otwórz w Mapach Google", "Open in Google Maps")}
               </a>
             </div>
+          </Card>
+        </div>
+
+        {/* Website Preview */}
+        <div className="mb-16">
+          <Card className="p-0 border-2 hover:border-accent transition-colors overflow-hidden">
+            <a
+              href="https://folwarkruchenka.pl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col md:flex-row group"
+            >
+              <div className="w-full md:w-64 h-48 md:h-auto flex-shrink-0 relative overflow-hidden">
+                <img
+                  src={imgRuchna}
+                  alt="Folwark Ruchenka"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+              <div className="flex-1 p-6 flex flex-col justify-center">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-serif mb-1 group-hover:text-accent transition-colors">
+                      Folwark Ruchenka
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      {t(
+                        "Odwiedź stronę internetową miejsca",
+                        "Visit the venue website"
+                      )}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {t(
+                        "Kliknij, aby dowiedzieć się więcej o tym wyjątkowym miejscu",
+                        "Click to learn more about this special venue"
+                      )}
+                    </p>
+                  </div>
+                  <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors flex-shrink-0 mt-1" />
+                </div>
+              </div>
+            </a>
           </Card>
         </div>
 
