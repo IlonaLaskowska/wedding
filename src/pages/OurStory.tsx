@@ -14,6 +14,10 @@ import img2 from "@/assets/img_2.jpg";
 import img3 from "@/assets/img_3.jpg";
 import img4 from "@/assets/img_4.jpg";
 import img5 from "@/assets/img_1.jpg";
+import img6 from "@/assets/img_6.jpg";  
+import img7 from "@/assets/img_7.jpg";
+import img8 from "@/assets/img_8.jpg";
+   
 import imgDrawing from "@/assets/img_drawing.jpg";
 
 const OurStory = () => {
@@ -29,6 +33,9 @@ const OurStory = () => {
     { id: 3, src: img3, alt: t("Zdjęcie 3", "Photo 3") },
     { id: 4, src: img4, alt: t("Zdjęcie 4", "Photo 4") },
     { id: 5, src: img5, alt: t("Zdjęcie 5", "Photo 5") },
+    { id: 6, src: img6, alt: t("Zdjęcie 6", "Photo 6") },
+    { id: 7, src: img7, alt: t("Zdjęcie 7", "Photo 7") },
+    { id: 8, src: img8, alt: t("Zdjęcie 8", "Photo 8") },
   ];
 
   return (

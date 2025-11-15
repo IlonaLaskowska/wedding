@@ -50,7 +50,7 @@ const Confirmation = () => {
           <p className="text-lg text-muted-foreground">
             {t(
               "Prosimy o potwierdzenie obecności do 21 marca 2026",
-              "Please confirm your attendance by April 1, 2026"
+              "Please confirm your attendance by March 21, 2026"
             )}
           </p>
         </div>
