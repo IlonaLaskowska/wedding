@@ -40,13 +40,14 @@ export const Navigation = () => {
               >
                 {t("Szczegóły Ceremonii", "Ceremony Details")}
               </NavLink>
-              <NavLink
+              {/* Temporarily disabled */}
+              {/* <NavLink
                 to="/confirmation"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 activeClassName="text-accent font-medium"
               >
                 {t("Potwierdzenie", "Confirmation")}
-              </NavLink>
+              </NavLink> */}
             </div>
             
             <div className="flex gap-2">

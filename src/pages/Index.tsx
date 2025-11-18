@@ -31,7 +31,7 @@ const Index = () => {
           </div>
           
           <div className="text-white/80 text-lg mt-[10mm]">
-            <p className="mb-2">22.05.2026 • 16:00</p>
+            <p className="mb-2 text-wedding-blue-dark">22.05.2026 • 16:00</p>
             <p className="font-decorative text-2xl">Folwark Ruchenka</p>
           </div>
         </div>
