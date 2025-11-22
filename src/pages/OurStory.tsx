@@ -19,6 +19,8 @@ import img7 from "@/assets/img_7.jpg";
 import img8 from "@/assets/img_8.jpg";
    
 import imgDrawing from "@/assets/img_drawing.jpg";
+import watercolor9 from "@/assets/watercolor_9.png";
+import watercolor10 from "@/assets/watercolor_10.png";
 
 const OurStory = () => {
   const { t } = useLanguage();
@@ -39,8 +41,18 @@ const OurStory = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20 md:pt-24 pb-12 md:pb-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <>
+    <div className="min-h-screen pt-20 md:pt-24 pb-12 md:pb-16 px-4 sm:px-6 lg:px-8 relative">
+      {/* Watercolor decoration - top right corner */}
+      <div className="absolute right-0 top-20 md:top-24 w-64 md:w-80 lg:w-96 xl:w-[28rem] pointer-events-none opacity-70 z-0">
+        <img
+          src={watercolor9}
+          alt="Watercolor decoration"
+          className="w-full h-auto object-contain"
+        />
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16 lg:mb-20 relative">
 
@@ -104,16 +116,26 @@ const OurStory = () => {
           </div>
         </div>
       </div>
-
-      {/* Blue Separator */}
-      <div className="w-full py-8 md:py-12">
-        <div className="w-24 md:w-32 h-1 bg-accent mx-auto"></div>
+      
+      {/* Watercolor decoration - bottom left */}
+      <div className="absolute left-0 bottom-0 w-64 md:w-80 lg:w-96 xl:w-[28rem] pointer-events-none opacity-70 z-0" style={{ transform: 'translateY(20%)' }}>
+        <img
+          src={watercolor10}
+          alt="Watercolor decoration"
+          className="w-full h-auto object-contain"
+        />
       </div>
+    </div>
 
-      {/* Photo Gallery - Full Width at Bottom */}
-      <div className="w-full py-16 md:py-20 lg:py-24 bg-wedding-cream">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-center mb-12 md:mb-16">
+    {/* Blue Separator */}
+    <div className="w-full py-8 md:py-12">
+      <div className="w-24 md:w-32 h-1 bg-accent mx-auto"></div>
+    </div>
+
+    {/* Photo Gallery - Full Width at Bottom */}
+    <div className="w-full py-16 md:py-20 lg:py-24 bg-[#053ce1]">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-center mb-12 md:mb-16 text-white">
             {t("Nasza Galeria", "Our Gallery")}
           </h2>
           <Carousel
@@ -157,7 +179,7 @@ const OurStory = () => {
           </Carousel>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

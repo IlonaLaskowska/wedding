@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Countdown } from "@/components/Countdown";
 import heroImage from "@/assets/img_landing_page2.jpg";
+import watercolor12 from "@/assets/watercolor_12.png";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -15,6 +16,15 @@ const Index = () => {
           style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background"></div>
+          
+          {/* Watercolor overlay at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 w-full pointer-events-none opacity-70 z-5">
+            <img
+              src={watercolor12}
+              alt="Watercolor decoration"
+              className="w-full h-auto object-cover object-bottom"
+            />
+          </div>
         </div>
 
         {/* Content */}
@@ -38,12 +48,12 @@ const Index = () => {
       </section>
 
       {/* Welcome Message */}
-      <section className="py-20 px-4 bg-wedding-cream">
+      <section className="py-20 px-4 bg-[#053ce1]">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-serif mb-6">
+          <h2 className="text-4xl md:text-5xl font-serif mb-6 text-white">
             {t("Zapraszamy na nasz wielki dzień", "Join us on our special day")}
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-white/90 leading-relaxed">
             {t(
               "Z radością zapraszamy Was do podzielenia się z nami jednym z najważniejszych momentów naszego życia. Będzie nam niezmiernie miło gościć Was podczas ceremonii ślubnej oraz przyjęcia weselnego.",
               "We joyfully invite you to share with us one of the most important moments of our lives. We would be delighted to have you join us for our wedding ceremony and reception."

@@ -1,10 +1,67 @@
+import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { MapPin, Clock, Music, Camera, Gift, ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import imgRuchna from "@/assets/img_ruchna.jpg";
+import watercolor3 from "@/assets/watercolor_7.png";
+import watercolorLeft from "@/assets/watercolor_7.png";
 
 const Ceremony = () => {
   const { t } = useLanguage();
+
+  const [imageHeight, setImageHeight] = useState(0);
+  const [imageOffset, setImageOffset] = useState(0);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+
+  const [imageHeightLeft, setImageHeightLeft] = useState(0);
+  const [imageOffsetLeft, setImageOffsetLeft] = useState(0);
+  const imageRefLeft = useRef<HTMLImageElement | null>(null);
+
+  // Measure right image height when it loads and on resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (imageRef.current) {
+        setImageHeight(imageRef.current.offsetHeight);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Measure left image height when it loads and on resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (imageRefLeft.current) {
+        setImageHeightLeft(imageRefLeft.current.offsetHeight);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Scroll-driven reveal for both images
+  useEffect(() => {
+    const handleScroll = () => {
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollY = window.scrollY;
+      const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
+
+      const maxTranslate = Math.max(imageHeight - window.innerHeight, 0);
+      setImageOffset(-progress * maxTranslate);
+
+      const maxTranslateLeft = Math.max(imageHeightLeft - window.innerHeight, 0);
+      setImageOffsetLeft(-progress * maxTranslateLeft);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [imageHeight, imageHeightLeft]);
 
   const details = [
     {
@@ -17,40 +74,99 @@ const Ceremony = () => {
       icon: MapPin,
       title: t("Miejsce", "Location"),
       content: "Folwark Ruchenka",
-      description: t("Ceremonia odbędzie się na świeżym powietrzu", "The ceremony will take place outdoors"),
+      description: t(
+        "Ceremonia odbędzie się na świeżym powietrzu",
+        "The ceremony will take place outdoors"
+      ),
     },
     {
       icon: Music,
       title: t("Przyjęcie", "Reception"),
       content: t("Po ceremonii", "Following the ceremony"),
-      description: t("Po ceremonii planujemy spokojne rozpoczęcie na zewnątrz z winem i przystawkami. Kolacja przewidywana jest na godzinę 18:00. Następnie taniec, muzyka i zabawa do białego rana.", "After the ceremony we plan to have a peaceful start outdoors with wine and snacks. Dinner is expected to start at 6:00 PM. Then dancing, music and celebration until dawn."),
+      description: t(
+        "Po ceremonii planujemy spokojne rozpoczęcie na zewnątrz z winem i przystawkami. Kolacja przewidywana jest na godzinę 18:00. Następnie taniec, muzyka i zabawa do białego rana.",
+        "After the ceremony we plan to have a peaceful start outdoors with wine and snacks. Dinner is expected to start at 6:00 PM. Then dancing, music and celebration until dawn."
+      ),
     },
     {
       icon: Camera,
       title: t("Dress Code", "Dress Code"),
       content: t("Elegancki, Boho", "Elegant, Boho"),
-      description: t("Ceremonia odbywa się na zewnątrz. Polecamy zabrać wygodne obuwie na zmianę oraz coś ciepłego do okrycia wieczorem.", "Outdoor ceremony. We would recommend to take comfortable shoes to change and something warm to wear later in the night."),
+      description: t(
+        "Ceremonia odbywa się na zewnątrz. Polecamy zabrać wygodne obuwie na zmianę oraz coś ciepłego do okrycia wieczorem.",
+        "Outdoor ceremony. We would recommend to take comfortable shoes to change and something warm to wear later in the night."
+      ),
     },
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-16 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen pt-24 pb-16 px-4 relative">
+      {/* Watercolor decoration – scroll reveal on the left */}
+      <div
+        className="
+          fixed left-0 top-0
+          h-screen w-28 md:w-36 lg:w-44
+          pointer-events-none z-10 opacity-80
+          overflow-hidden
+        "
+      >
+        <img
+          ref={imageRefLeft}
+          src={watercolorLeft}
+          alt="Watercolor decoration"
+          className="w-full h-auto object-contain"
+          style={{
+            transform: `translateY(${imageOffsetLeft}px)`,
+            transition: "transform 0.05s linear",
+          }}
+          onLoad={(e) => setImageHeightLeft(e.currentTarget.offsetHeight)}
+        />
+      </div>
+
+      {/* Watercolor decoration – scroll reveal on the right */}
+      <div
+        className="
+          fixed right-0 top-0
+          h-screen w-28 md:w-36 lg:w-44
+          pointer-events-none z-10 opacity-80
+          overflow-hidden
+        "
+      >
+        <img
+          ref={imageRef}
+          src={watercolor3}
+          alt="Watercolor decoration"
+          className="w-full h-auto object-contain"
+          style={{
+            transform: `translateY(${imageOffset}px)`,
+            transition: "transform 0.05s linear",
+          }}
+          onLoad={(e) => setImageHeight(e.currentTarget.offsetHeight)}
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-20">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-serif mb-4">
             {t("Szczegóły Ceremonii", "Ceremony Details")}
           </h1>
-          <div className="w-24 h-1 bg-accent mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-accent mx-auto mb-6" />
           <p className="text-xl text-muted-foreground">
-            {t("Wszystkie informacje, które musisz wiedzieć", "All the information you need to know")}
+            {t(
+              "Wszystkie informacje, które musisz wiedzieć",
+              "All the information you need to know"
+            )}
           </p>
         </div>
 
         {/* Details Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {details.map((detail, index) => (
-            <Card key={index} className="p-8 border-2 hover:border-accent transition-colors">
+            <Card
+              key={index}
+              className="p-8 border-2 hover:border-accent transition-colors"
+            >
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-accent/10">
                   <detail.icon className="w-6 h-6 text-accent" />
@@ -82,12 +198,15 @@ const Ceremony = () => {
                 style={{ border: 0 }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+              />
             </div>
             <div className="text-center">
               <h3 className="text-xl font-serif mb-2">Folwark Ruchenka</h3>
               <p className="text-muted-foreground mb-4">
-                {t("Słoneczna 25, 07-100 Ruchna", "Słoneczna 25, 07-100 Ruchna")}
+                {t(
+                  "Słoneczna 25, 07-100 Ruchna",
+                  "Słoneczna 25, 07-100 Ruchna"
+                )}
               </p>
               <a
                 href="https://maps.app.goo.gl/vrqUj2HWB8GbZ1Hy6"
@@ -116,7 +235,7 @@ const Ceremony = () => {
                   alt="Folwark Ruchenka"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
               <div className="flex-1 p-6 flex flex-col justify-center">
                 <div className="flex items-start justify-between gap-4">
