@@ -20,7 +20,7 @@ import img8 from "@/assets/img_8.jpg";
    
 import imgDrawing from "@/assets/img_drawing.jpg";
 import watercolor9 from "@/assets/watercolor_9.png";
-import watercolor10 from "@/assets/watercolor_10.png";
+import watercolor10 from "@/assets/watercolor_11.png";
 
 const OurStory = () => {
   const { t } = useLanguage();
@@ -42,9 +42,9 @@ const OurStory = () => {
 
   return (
     <>
-    <div className="min-h-screen pt-20 md:pt-24 pb-12 md:pb-16 px-4 sm:px-6 lg:px-8 relative">
+    <div className="pt-20 md:pt-24 pb-24 md:pb-32 lg:pb-40 px-4 sm:px-6 lg:px-8 relative bg-white">
       {/* Watercolor decoration - top right corner */}
-      <div className="absolute right-0 top-20 md:top-24 w-64 md:w-80 lg:w-96 xl:w-[28rem] pointer-events-none opacity-70 z-0">
+      <div className="absolute right-0 top-32 sm:top-36 md:top-28 w-64 md:w-80 lg:w-96 xl:w-[28rem] pointer-events-none opacity-70 z-0">
         <img
           src={watercolor9}
           alt="Watercolor decoration"
@@ -63,11 +63,11 @@ const OurStory = () => {
         </div>
 
         {/* Story Content with image on the right */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto mb-16 md:mb-28 lg:mb-32 mt-24 sm:mt-28 md:mt-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
             {/* Left: text */}
             <div className="space-y-8 md:space-y-12 lg:space-y-16">
-              <div className="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl max-w-none">
+              <div className="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl max-w-none mt-8 sm:mt-12 md:mt-0">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-accent mb-4 md:mb-6">
                   {t("Jak się poznaliśmy", "How we met")}
                 </h2>
@@ -95,8 +95,8 @@ const OurStory = () => {
                 </h2>
                 <p className="text-muted-foreground leading-relaxed text-base md:text-lg lg:text-xl text-justify">
                   {t(
-                    "Jesteśmy jak ogień i woda, jak yin i yang, zupełnie inni, a jednak idealnie dopasowani. Połączyła nas miłość do natury, ruchu i wszystkich aktywności, które wymagają pianki, kasku albo odwagi graniczącej z szaleństwem. Surfing, kitesurfing, nurkowanie, wędrówki. Jeśli pachnie przygodą, to jesteśmy pierwsi w kolejce. I najlepiej razem, nawet jeśli jedno krzyczy „jedziemy!”, a drugie pyta „a to na pewno bezpieczne?”.",
-                    "We’re like fire and water, like yin and yang, totally different but somehow a perfect match. What brought us together was our shared love for nature, movement, and trying anything that requires a wetsuit, a helmet, or a questionable amount of courage. Surfing, kitesurfing, diving, hiking. If it involves adventure, we’re in. And always better as a team, even if one of us yells “let’s go!” while the other whispers “are we sure this is safe?”."
+                    "Jesteśmy jak ogień i woda, jak yin i yang, zupełnie inni, a jednak idealnie dopasowani. Połączyła nas miłość do natury, ruchu i wszystkich aktywności, które wymagają pianki, kasku albo odwagi graniczącej z szaleństwem. Surfing, kitesurfing, nurkowanie, wędrówki. Jeśli pachnie przygodą, to jesteśmy pierwsi w kolejce. I najlepiej razem, nawet jeśli jedno krzyczy \"jedziemy!\", a drugie pyta \"a to na pewno bezpieczne?\".",
+                    "We're like fire and water, like yin and yang, totally different but somehow a perfect match. What brought us together was our shared love for nature, movement, and trying anything that requires a wetsuit, a helmet, or a questionable amount of courage. Surfing, kitesurfing, diving, hiking. If it involves adventure, we're in. And always better as a team, even if one of us yells \"let's go!\" while the other whispers \"are we sure this is safe?\"."
                   )}
                 </p>
               </div>
@@ -117,12 +117,12 @@ const OurStory = () => {
         </div>
       </div>
       
-      {/* Watercolor decoration - bottom left */}
-      <div className="absolute left-0 bottom-0 w-64 md:w-80 lg:w-96 xl:w-[28rem] pointer-events-none opacity-70 z-0" style={{ transform: 'translateY(20%)' }}>
+      {/* Watercolor overlay at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 w-full pointer-events-none opacity-60 sm:opacity-70 z-5">
         <img
           src={watercolor10}
           alt="Watercolor decoration"
-          className="w-full h-auto object-contain"
+          className="w-full h-auto object-cover object-center md:object-bottom max-h-[500px] sm:max-h-[500px] md:max-h-none"
         />
       </div>
     </div>

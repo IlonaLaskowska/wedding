@@ -60,21 +60,21 @@ export const Countdown = () => {
   }, []);
 
   const boxClass =
-    "bg-[#053ce1] text-white rounded-xl shadow-lg px-8 py-6 min-w-[110px] text-center";
+    "bg-[#053ce1] text-white rounded-xl shadow-lg px-3 sm:px-4 md:px-5 py-3 sm:py-4 md:py-5 min-w-[70px] sm:min-w-[80px] md:min-w-[90px] text-center";
 
   const numberClass =
-    "text-4xl sm:text-5xl font-serif font-bold leading-none";
+    "text-3xl sm:text-4xl md:text-5xl font-serif font-bold leading-none";
 
   const labelClass =
-    "mt-2 text-[11px] sm:text-xs uppercase tracking-[0.2em] text-white/80";
+    "mt-1.5 sm:mt-2 text-[10px] sm:text-[11px] uppercase tracking-[0.15em] text-white/80";
 
   return (
-    <div className="flex flex-wrap gap-4 justify-center">
+    <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
       <div className={boxClass}>
         <div className={numberClass}>
           {String(timeLeft.months).padStart(2, "0")}
         </div>
-        <div className={labelClass}>{t("Miesięcy", "Months")}</div>
+        <div className={labelClass}>{t("Mies", "Months")}</div>
       </div>
 
       <div className={boxClass}>
@@ -88,14 +88,14 @@ export const Countdown = () => {
         <div className={numberClass}>
           {String(timeLeft.hours).padStart(2, "0")}
         </div>
-        <div className={labelClass}>{t("Godzin", "Hours")}</div>
+        <div className={labelClass}>{t("Godz", "Hours")}</div>
       </div>
 
       <div className={boxClass}>
         <div className={numberClass}>
           {String(timeLeft.minutes).padStart(2, "0")}
         </div>
-        <div className={labelClass}>{t("Minut", "Minutes")}</div>
+        <div className={labelClass}>{t("Min", "Minutes")}</div>
       </div>
     </div>
   );
