@@ -91,7 +91,7 @@ const Ceremony = () => {
     {
       icon: Camera,
       title: t("Dress Code", "Dress Code"),
-      content: t("Elegancki, Boho", "Elegant, Boho"),
+      content: t("Elegancki", "Elegant"),
       description: t(
         "Ceremonia odbywa się na zewnątrz. Polecamy zabrać wygodne obuwie na zmianę oraz coś ciepłego do okrycia wieczorem.",
         "Outdoor ceremony. We would recommend to take comfortable shoes to change and something warm to wear later in the night."
