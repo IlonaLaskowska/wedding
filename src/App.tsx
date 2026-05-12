@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import OurStory from "./pages/OurStory";
 import Ceremony from "./pages/Ceremony";
 import Confirmation from "./pages/Confirmation";
+import Fun from "./pages/Fun";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/our-story" element={<OurStory />} />
             <Route path="/ceremony" element={<Ceremony />} />
+            <Route path="/fun" element={<Fun />} />
             {/* Temporarily disabled */}
             {/* <Route path="/confirmation" element={<Confirmation />} /> */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
