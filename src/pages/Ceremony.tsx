@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { MapPin, Clock, Music, Camera, Gift, ExternalLink } from "lucide-react";
+import { MapPin, Clock, Music, Camera, Gift, ExternalLink, Bus } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import imgRuchna from "@/assets/img_ruchna.jpg";
 import watercolor3 from "@/assets/watercolor_7.png";
@@ -46,8 +46,7 @@ const Ceremony = () => {
   // Scroll-driven reveal for both images
   useEffect(() => {
     const handleScroll = () => {
-      const maxScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       const scrollY = window.scrollY;
       const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
 
@@ -101,7 +100,7 @@ const Ceremony = () => {
 
   return (
     <div className="min-h-screen pt-24 pb-16 px-4 relative">
-      {/* Watercolor decoration – scroll reveal on the left */}
+      {/* Watercolor decoration - scroll reveal on the left */}
       <div
         className="
           fixed left-0 top-0
@@ -123,7 +122,7 @@ const Ceremony = () => {
         />
       </div>
 
-      {/* Watercolor decoration – scroll reveal on the right */}
+      {/* Watercolor decoration - scroll reveal on the right */}
       <div
         className="
           fixed right-0 top-0
@@ -163,10 +162,7 @@ const Ceremony = () => {
         {/* Details Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {details.map((detail, index) => (
-            <Card
-              key={index}
-              className="p-8 border-2 hover:border-accent transition-colors"
-            >
+            <Card key={index} className="p-8 border-2 hover:border-accent transition-colors">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-accent/10">
                   <detail.icon className="w-6 h-6 text-accent" />
@@ -185,9 +181,7 @@ const Ceremony = () => {
 
         {/* Map Section */}
         <div className="mb-16">
-          <h2 className="text-3xl font-serif mb-8 text-center">
-            {t("Jak dojechać", "How to get there")}
-          </h2>
+          <h2 className="text-3xl font-serif mb-8 text-center">{t("Jak dojechać", "How to get there")}</h2>
           <Card className="p-8">
             <div className="aspect-video rounded-lg mb-6 overflow-hidden">
               <iframe
@@ -203,10 +197,7 @@ const Ceremony = () => {
             <div className="text-center">
               <h3 className="text-xl font-serif mb-2">Folwark Ruchenka</h3>
               <p className="text-muted-foreground mb-4">
-                {t(
-                  "Słoneczna 25, 07-100 Ruchna",
-                  "Słoneczna 25, 07-100 Ruchna"
-                )}
+                {t("Słoneczna 25, 07-100 Ruchna", "Słoneczna 25, 07-100 Ruchna")}
               </p>
               <a
                 href="https://maps.app.goo.gl/vrqUj2HWB8GbZ1Hy6"
@@ -244,10 +235,7 @@ const Ceremony = () => {
                       Folwark Ruchenka
                     </h3>
                     <p className="text-sm text-muted-foreground mb-2">
-                      {t(
-                        "Odwiedź stronę internetową miejsca",
-                        "Visit the venue website"
-                      )}
+                      {t("Odwiedź stronę internetową miejsca", "Visit the venue website")}
                     </p>
                     <p className="text-xs text-muted-foreground">
                       {t(
@@ -263,6 +251,66 @@ const Ceremony = () => {
           </Card>
         </div>
 
+        {/* Transport Details */}
+        <div className="mb-16">
+          <Card className="p-8 bg-wedding-cream border-2">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-full bg-accent/10">
+                <Bus className="w-6 h-6 text-accent" />
+              </div>
+              <div className="w-full">
+                <h3 className="text-2xl font-serif mb-4">{t("Szczegóły transportu", "Transport details")}</h3>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-xl font-serif mb-3">{t("Bus start", "Bus start")}</h4>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li>
+                        <span className="font-medium text-foreground">Warszawa 14:15</span>
+                        <p>{t("Warsaw Central Station 04", "Warsaw Central Station 04")}</p>
+                        <a
+                          href="https://maps.app.goo.gl/K8rrWrGs2KbX4snG9"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-accent hover:underline mt-1"
+                        >
+                          {t("Punkt startowy w mapach", "Open pickup point in Maps")}
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </li>
+                      <li>
+                        <span className="font-medium text-foreground">Hotel Everest 16:00</span>
+                        <p>
+                          <a
+                            href="https://maps.app.goo.gl/ndAq2Aatqd4btmgo8"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-accent hover:underline mt-1"
+                          >
+                            {t("Lokalizacja hotelu", "Open hotel location")}
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-serif mb-3">{t("Bus powrót", "Bus return")}</h4>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li>
+                        <span className="font-medium text-foreground">Hotel Everest 3:30</span>
+                      </li>
+                      <li>
+                        <span className="font-medium text-foreground">Warszawa 4:00</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+
         {/* Additional Info */}
         <Card className="p-8 bg-wedding-cream border-2">
           <div className="flex items-start gap-4">
@@ -270,9 +318,7 @@ const Ceremony = () => {
               <Gift className="w-6 h-6 text-accent" />
             </div>
             <div>
-              <h3 className="text-2xl font-serif mb-4">
-                {t("Dodatkowe informacje", "Additional Information")}
-              </h3>
+              <h3 className="text-2xl font-serif mb-4">{t("Dodatkowe informacje", "Additional Information")}</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li>
                   {t(
@@ -280,18 +326,8 @@ const Ceremony = () => {
                     "• The ceremony will be held outdoors - please dress accordingly"
                   )}
                 </li>
-                <li>
-                  {t(
-                    "• Parking dostępny na terenie obiektu",
-                    "• Parking available on site"
-                  )}
-                </li>
-                <li>
-                  {t(
-                    "• W razie pytań, skontaktuj się z nami",
-                    "• If you have any questions, please contact us"
-                  )}
-                </li>
+                <li>{t("• Parking dostępny na terenie obiektu", "• Parking available on site")}</li>
+                <li>{t("• W razie pytań, skontaktuj się z nami", "• If you have any questions, please contact us")}</li>
               </ul>
             </div>
           </div>
