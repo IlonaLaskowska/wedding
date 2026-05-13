@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { MapPin, Clock, Music, Camera, Gift, ExternalLink, Bus } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import imgRuchna from "@/assets/img_ruchna.jpg";
+import mapaRuchenka from "@/assets/mapa_ruchenka.png";
 import watercolor3 from "@/assets/watercolor_7.png";
 import watercolorLeft from "@/assets/watercolor_7.png";
 
@@ -332,6 +333,16 @@ const Ceremony = () => {
             </div>
           </div>
         </Card>
+
+        <div className="mt-16">
+          <Card className="p-4 md:p-6 border-2">
+            <img
+              src={mapaRuchenka}
+              alt={t("Mapa Folwarku Ruchenka", "Folwark Ruchenka map")}
+              className="w-full h-auto rounded-lg"
+            />
+          </Card>
+        </div>
       </div>
     </div>
   );
