@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { NavLink } from "@/components/NavLink";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -37,7 +37,7 @@ export const Navigation = () => {
         {t("Szczegóły Ceremonii", "Ceremony Details")}
       </NavLink>
       <NavLink
-        to="/fun"
+        to="/gifts"
         className="text-sm text-muted-foreground hover:text-foreground transition-colors"
         activeClassName="text-accent font-medium"
         onClick={() => setMobileMenuOpen(false)}
@@ -75,7 +75,7 @@ export const Navigation = () => {
         {t("Szczegóły Ceremonii", "Ceremony Details")}
       </NavLink>
       <NavLink
-        to="/fun"
+        to="/gifts"
         className="text-base text-white hover:text-white/80 transition-colors py-2"
         activeClassName="!text-wedding-blue-light font-medium"
         onClick={() => setMobileMenuOpen(false)}

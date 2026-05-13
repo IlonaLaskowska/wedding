@@ -1,8 +1,8 @@
-import { useMemo, useRef, useState } from "react";
+﻿import { useMemo, useRef, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import watercolor from "@/assets/watercolor_8.png";
+import watercolor12 from "@/assets/watercolor_12.png";
 
 const gifts = [
   { pl: "oliwa z oliwek", en: "olive oil" },
@@ -11,7 +11,7 @@ const gifts = [
   { pl: "kawa", en: "coffee" },
   { pl: "wino", en: "wine" },
   { pl: "śmieszne skarpetki", en: "funny socks" },
-  { pl: "świece", en: "candles" },
+  { pl: "świece sojowe", en: "soy candles" },
 ];
 
 const spinDurationMs = 4600;
@@ -27,6 +27,16 @@ const segmentColors = [
 ];
 
 const normalizeAngle = (angle: number) => ((angle % 360) + 360) % 360;
+
+const labelOffsets: Record<string, { x?: number; y?: number }> = {
+  "funny socks": { x: -2, y: -25 },
+  wine: { x: -20, y: -18 },
+  coffee: { x: -25, y: 10 },
+  tea: { x: -10, y: 30 },
+  honey: { x: 10, y: 20 },
+  "olive oil": { x: 30, y: -10 },
+  "soy candles": { x: 15, y: -20 },
+};
 
 const Fun = () => {
   const { language, t } = useLanguage();
@@ -79,8 +89,12 @@ const Fun = () => {
 
   return (
     <div className="min-h-screen pt-24 pb-16 px-4 bg-[#053ce1] relative overflow-hidden">
-      <div className="absolute right-0 bottom-0 w-64 sm:w-80 opacity-50 pointer-events-none">
-        <img src={watercolor} alt="Watercolor decoration" className="w-full h-auto" />
+      <div className="absolute bottom-0 left-0 right-0 w-full pointer-events-none opacity-60 sm:opacity-70 z-0">
+        <img
+          src={watercolor12}
+          alt="Watercolor decoration"
+          className="w-full h-auto object-cover object-bottom max-h-[200px] sm:max-h-none"
+        />
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
@@ -90,7 +104,7 @@ const Fun = () => {
           </h1>
           <p className="text-white/90 text-lg">
             {t(
-              "Zakręć kołem fortuny i sprawdz swój prezent.",
+              "Zakręć kołem fortuny i sprawdź swój prezent.",
               "Spin the wheel and discover your gift."
             )}
           </p>
@@ -115,22 +129,31 @@ const Fun = () => {
                     {gifts.map((gift, index) => {
                       const angle = index * segmentAngle + segmentAngle / 2;
                       const radians = (angle * Math.PI) / 180;
-                      const radius = 38;
+                      const radius = 33;
                       const left = 50 + Math.sin(radians) * radius;
                       const top = 50 - Math.cos(radians) * radius;
+                      const offset = labelOffsets[gift.en] ?? {};
+                      const label = t(gift.pl, gift.en);
+                      const displayLabel =
+                        gift.en === "olive oil"
+                          ? label.replace(/\s+z\s+/i, "\nz ")
+                          : gift.en === "soy candles"
+                          ? label.replace(/\s+/i, "\n")
+                          : label;
 
                       return (
                         <span
                           key={gift.en}
                           className="absolute text-[11px] sm:text-xs font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] text-center leading-tight"
                           style={{
-                            left: `${left}%`,
-                            top: `${top}%`,
-                            transform: "translate(-50%, -50%)",
+                            left: `calc(${left}% + ${(offset.x ?? 0).toString()}px)`,
+                            top: `calc(${top}% + ${(offset.y ?? 0).toString()}px)`,
+                            transform: `translate(-50%, -50%) rotate(${-rotation}deg)`,
                             width: "88px",
+                            whiteSpace: "pre-line",
                           }}
                         >
-                          {t(gift.pl, gift.en)}
+                          {displayLabel}
                         </span>
                       );
                     })}
@@ -146,7 +169,7 @@ const Fun = () => {
             <div className="space-y-6">
               <div>
                 <h2 className="text-2xl font-serif text-foreground mb-3">
-                  {t("Opcje prezentow", "Gift options")}
+                  {t("Opcje prezentów", "Gift options")}
                 </h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-muted-foreground">
                   {gifts.map((gift) => (
