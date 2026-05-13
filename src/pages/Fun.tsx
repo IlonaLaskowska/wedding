@@ -167,7 +167,7 @@ const Fun = () => {
             </div>
 
             <div className="space-y-6">
-              <div>
+              <div className="order-3 sm:order-1">
                 <h2 className="text-2xl font-serif text-foreground mb-3">
                   {t("Opcje prezentów", "Gift options")}
                 </h2>
@@ -183,12 +183,12 @@ const Fun = () => {
               <Button
                 onClick={spinWheel}
                 disabled={isSpinning}
-                className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground px-8"
+                className="order-1 sm:order-2 w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground px-8"
               >
                 {isSpinning ? t("Losowanie...", "Spinning...") : t("Zakręć kołem", "Spin the wheel")}
               </Button>
 
-              <div className="min-h-16">
+              <div className="order-2 sm:order-3 min-h-16">
                 {selectedGift ? (
                   <div className="rounded-lg bg-accent/10 border border-accent/20 p-4">
                     <p className="text-sm text-muted-foreground mb-1">
