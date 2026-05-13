@@ -20,6 +20,21 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        var redirect = window.location.search.match(/^\?\/(.*)$/);
+        if (!redirect) return;
+
+        var decoded = redirect[1].replace(/&/g, "?").replace(/~and~/g, "&");
+        var newUrl =
+          window.location.origin +
+          "/" +
+          decoded +
+          window.location.hash;
+
+        window.history.replaceState(null, "", newUrl);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
